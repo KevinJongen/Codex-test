@@ -1,7 +1,10 @@
 const banana = document.querySelector(".banana");
 const statusText = document.querySelector(".puzzle-status");
-const hint = document.querySelector(".puzzle-hint");
+const hintText = document.querySelector(".puzzle-hint-text");
 const redirectUrl = "https://www.mens-en-natuur.nl";
+const submitButton = document.querySelector(".puzzle-submit");
+const secretInput = document.querySelector("#banana-secret");
+const shellInputs = document.querySelectorAll("input[name=\"banana-shell\"]");
 
 const steps = [
   "Tik op de 🍌 om te beginnen!",
@@ -19,7 +22,7 @@ const setStatus = (text) => {
 };
 
 const setHint = (text) => {
-  hint.textContent = text;
+  hintText.textContent = text;
 };
 
 const advanceStep = () => {
@@ -58,18 +61,24 @@ const handleSecretWord = (event) => {
   const value = event.target.value.trim().toLowerCase();
   if (value === "banaan") {
     advanceStep();
-    setHint("Tip: de juiste schil is de kleur van zon." );
+    setHint("Tip: de juiste schil is de kleur van zon.");
   } else {
     setHint("Dat woord is het niet. Probeer: banaan.");
   }
 };
 
-const handleShellChoice = (event) => {
+const getSelectedShell = () => {
+  const selected = Array.from(shellInputs).find((input) => input.checked);
+  return selected ? selected.value : "";
+};
+
+const submitShellChoice = () => {
   if (stepIndex !== 3) {
     return;
   }
-  const choice = event.target.dataset.choice;
+  const choice = getSelectedShell();
   if (!choice) {
+    setHint("Kies eerst een kleur en klik op inleveren.");
     return;
   }
   if (choice === "geel") {
@@ -91,10 +100,15 @@ banana.addEventListener("click", () => {
   }
 });
 
-hint.addEventListener("click", handleShellChoice);
+submitButton.addEventListener("click", submitShellChoice);
 
-const secretInput = document.querySelector("#banana-secret");
 secretInput.addEventListener("keydown", handleSecretWord);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Enter" && stepIndex === 3) {
+    submitShellChoice();
+  }
+});
 
 setStatus(steps[stepIndex]);
 setHint("Klik op de banaan om de puzzel te starten.");

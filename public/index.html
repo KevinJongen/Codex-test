@@ -12,6 +12,7 @@
       <div class="banana" role="button" aria-label="Start de bananenpuzzel">🍌</div>
       <section class="puzzle" aria-live="polite">
         <p class="puzzle-status"></p>
+        <p class="puzzle-hint-text"></p>
         <input
           id="banana-secret"
           class="puzzle-input"
@@ -19,10 +20,20 @@
           placeholder="Type het geheime woord"
           autocomplete="off"
         />
-        <div class="puzzle-hint" role="listbox" aria-label="Kies de schil">
-          <button type="button" data-choice="geel">Geel</button>
-          <button type="button" data-choice="groen">Groen</button>
-          <button type="button" data-choice="blauw">Blauw</button>
+        <div class="puzzle-options" role="group" aria-label="Kies de schil">
+          <label>
+            <input type="radio" name="banana-shell" value="geel" />
+            Geel
+          </label>
+          <label>
+            <input type="radio" name="banana-shell" value="groen" />
+            Groen
+          </label>
+          <label>
+            <input type="radio" name="banana-shell" value="blauw" />
+            Blauw
+          </label>
+          <button type="button" class="puzzle-submit">Inleveren</button>
         </div>
       </section>
     </main>
