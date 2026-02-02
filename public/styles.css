@@ -19,11 +19,12 @@ body {
 .stage {
   text-align: center;
   padding: 2rem;
+  max-width: 720px;
 }
 
 h1 {
   font-size: clamp(1.6rem, 2.5vw + 1rem, 3rem);
-  margin: 0 0 2.5rem;
+  margin: 0 0 2rem;
   text-shadow: 0 2px 0 #fff4a2;
 }
 
@@ -32,6 +33,56 @@ h1 {
   display: inline-block;
   animation: dance 1.2s infinite ease-in-out;
   filter: drop-shadow(0 15px 12px rgba(0, 0, 0, 0.2));
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+
+.banana--active {
+  animation-duration: 0.8s;
+}
+
+.puzzle {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.puzzle-status {
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+.puzzle-input {
+  width: min(100%, 360px);
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
+  border: 2px solid #ffcc4d;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  outline: none;
+}
+
+.puzzle-hint {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.puzzle-hint button {
+  background: #fff4a2;
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.puzzle-hint button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
 @keyframes dance {

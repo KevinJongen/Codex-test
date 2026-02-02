@@ -9,7 +9,23 @@
   <body>
     <main class="stage">
       <h1>Het werkt ook via codex. Vet he Pim en Ralf!</h1>
-      <div class="banana" role="img" aria-label="Dansende banaan">🍌</div>
+      <div class="banana" role="button" aria-label="Start de bananenpuzzel">🍌</div>
+      <section class="puzzle" aria-live="polite">
+        <p class="puzzle-status"></p>
+        <input
+          id="banana-secret"
+          class="puzzle-input"
+          type="text"
+          placeholder="Type het geheime woord"
+          autocomplete="off"
+        />
+        <div class="puzzle-hint" role="listbox" aria-label="Kies de schil">
+          <button type="button" data-choice="geel">Geel</button>
+          <button type="button" data-choice="groen">Groen</button>
+          <button type="button" data-choice="blauw">Blauw</button>
+        </div>
+      </section>
     </main>
+    <script src="app.js"></script>
   </body>
 </html>
