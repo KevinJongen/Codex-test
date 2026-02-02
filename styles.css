@@ -1,0 +1,53 @@
+:root {
+  color-scheme: light;
+  font-family: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at top, #fff6bf 0%, #ffe07f 45%, #ffcc4d 100%);
+  color: #2b2b2b;
+}
+
+.stage {
+  text-align: center;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: clamp(1.6rem, 2.5vw + 1rem, 3rem);
+  margin: 0 0 2.5rem;
+  text-shadow: 0 2px 0 #fff4a2;
+}
+
+.banana {
+  font-size: clamp(5rem, 12vw, 10rem);
+  display: inline-block;
+  animation: dance 1.2s infinite ease-in-out;
+  filter: drop-shadow(0 15px 12px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes dance {
+  0% {
+    transform: translateY(0) rotate(-8deg);
+  }
+  25% {
+    transform: translateY(-12px) rotate(8deg);
+  }
+  50% {
+    transform: translateY(0) rotate(-4deg) scale(1.05);
+  }
+  75% {
+    transform: translateY(-10px) rotate(10deg);
+  }
+  100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+}
