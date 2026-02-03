@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dansende banaan</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="stage">
+      <h1>Het werkt ook via codex. Vet he! Nog meer vibecode opties!</h1>
+      <div class="banana" role="button" aria-label="Start de bananenpuzzel">🍌</div>
+      <section class="puzzle" aria-live="polite">
+        <p class="puzzle-status"></p>
+        <p class="puzzle-hint-text"></p>
+        <input
+          id="banana-secret"
+          class="puzzle-input"
+          type="text"
+          placeholder="Type het geheime woord"
+          autocomplete="off"
+        />
+        <div class="puzzle-options" role="group" aria-label="Kies de schil">
+          <label>
+            <input type="radio" name="banana-shell" value="geel" />
+            Geel
+          </label>
+          <label>
+            <input type="radio" name="banana-shell" value="groen" />
+            Groen
+          </label>
+          <label>
+            <input type="radio" name="banana-shell" value="blauw" />
+            Blauw
+          </label>
+          <button type="button" class="puzzle-submit">Inleveren</button>
+        </div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
